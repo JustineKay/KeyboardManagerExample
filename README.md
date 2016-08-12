@@ -1,5 +1,5 @@
 ## A Keyboard Management Example
-Built for ***[this blog post](https://medium.com/p/91194f0b012c/edit)***
+Built for ***[this blog post](https://medium.com/@JustineBethKay/12-weeks-as-an-ios-developer-apprentice-91194f0b012c#.dwo9rpyhe)***
 
 * Animates UI elements when the keyboard slides up and down 
 * Accounts for all device sizes 
