@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Submit Email View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SubmitEmailViewController" customModule="KeyboardManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,61 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-orange" translatesAutoresizingMaskIntoConstraints="NO" id="RFA-Iy-svA">
+                                <rect key="frame" x="205" y="42" width="190" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RFA-Iy-svA" secondAttribute="height" multiplier="1:1" id="Frl-sG-Mz1"/>
+                                    <constraint firstAttribute="height" constant="190" id="Uja-54-aIg"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgQ-QK-nh5">
+                                <rect key="frame" x="20" y="285" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgO-2h-4lo">
+                                <rect key="frame" x="0.0" y="543" width="600" height="57"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="iF2-ne-U6B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="37"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TuE-m3-pNd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dgQ-QK-nh5" firstAttribute="top" secondItem="RFA-Iy-svA" secondAttribute="bottom" constant="53" id="GvP-jI-i0w"/>
+                            <constraint firstItem="mgO-2h-4lo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ldh-NX-Cli"/>
+                            <constraint firstItem="dgQ-QK-nh5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="QC2-yG-grY"/>
+                            <constraint firstItem="RFA-Iy-svA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="42" id="SQZ-pl-jJj"/>
+                            <constraint firstAttribute="trailing" secondItem="mgO-2h-4lo" secondAttribute="trailing" id="YoZ-x6-qDC"/>
+                            <constraint firstItem="RFA-Iy-svA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d47-lQ-fnS"/>
+                            <constraint firstAttribute="trailing" secondItem="dgQ-QK-nh5" secondAttribute="trailing" constant="20" id="ihf-fO-GOp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mgO-2h-4lo" secondAttribute="bottom" id="oiq-v2-iMF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="dgQ-QK-nh5" id="CvD-NO-DhR"/>
+                        <outlet property="emailAddressTextFieldTopConstraint" destination="GvP-jI-i0w" id="7BS-RQ-pX7"/>
+                        <outlet property="imageView" destination="RFA-Iy-svA" id="RfE-K7-KL7"/>
+                        <outlet property="imageViewHeightConstraint" destination="Uja-54-aIg" id="xut-rZ-apY"/>
+                        <outlet property="nextButtonBottomConstraint" destination="oiq-v2-iMF" id="Zg6-IW-wRF"/>
+                        <outlet property="nextbutton" destination="mgO-2h-4lo" id="jY1-ph-xal"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1009" y="381"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="email-orange" width="256" height="256"/>
+    </resources>
 </document>
